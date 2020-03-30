@@ -34,4 +34,6 @@ public abstract class Dog extends Pet {
     public String toString() { 
         return super.getName() + "\nBreed: " + this.getBreed() + "\nColour: " + super.getColour() + "\nWeight: " + super.getWeight() + "\nHeight: " + this.getHeight();
     }
+
+    public abstract void tips();
 }

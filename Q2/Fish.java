@@ -34,4 +34,6 @@ public abstract class Fish extends Pet {
     public String toString() { 
         return super.getName() + "\nSpecies: " + this.getSpecies() + "\nColour: " + super.getColour() + "\nWeight: " + super.getWeight() + "\nLength: " + this.getLength();
     }
+
+    public abstract void tips();
 }

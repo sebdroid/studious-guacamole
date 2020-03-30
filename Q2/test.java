@@ -11,8 +11,10 @@ public class test {
         //System.out.println(dog);
         //System.out.println(fish);
         System.out.println(springerSpaniel);
+        springerSpaniel.tips();
         System.out.println(guppy);
         System.out.println(tetra);
         System.out.println(boxer);
+        boxer.tips();
     }
 }
