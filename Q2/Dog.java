@@ -3,8 +3,8 @@ public abstract class Dog extends Pet {
     private float height;
     private String breed;
 
-    public Dog(String name, String colour, float weight, float height, String breed) {
-        super(name, colour, weight);
+    public Dog(String name, Integer age, String colour, float weight, float height, String breed) {
+        super(name, age, colour, weight);
         this.setHeight(height);
         this.setBreed(breed);
     }
