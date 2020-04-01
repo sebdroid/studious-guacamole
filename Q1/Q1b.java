@@ -48,31 +48,29 @@ public class Q1b {
                 System.out.println("Enter '(row) (column) (u/d/l/r)' to swap: "); //Prompt user
                 try {
                     while (in.hasNextInt() && coords.size() != 2) { //Do until two valid integers inputs are obtained 
-                        int input = in.nextInt(); 
-                        if (input > 0 && input <= num) {
-                            coords.add(input);
+                        int input = in.nextInt(); //Get next integer
+                        if (input > 0 && input <= num) { //If it is a valid location
+                            coords.add(input); //Add it to ArrayList
                         } else {
-                            throw new InputMismatchException();
+                            throw new InputMismatchException(); //Otherwise throw an error
                         }
                     }
-                    if (in.hasNext(Pattern.compile("[udlr]", Pattern.CASE_INSENSITIVE))) {
-                        direction = Character.toLowerCase(in.next().charAt(0));
+                    if (in.hasNext(Pattern.compile("[udlr]", Pattern.CASE_INSENSITIVE))) { //If the next input is a valid character input for direction
+                        direction = Character.toLowerCase(in.next().charAt(0)); //Set it as the direction
                     } else {
-                        throw new InputMismatchException();
+                        throw new InputMismatchException(); //Otherwise throw an error
                     }
-                } catch (InputMismatchException e) {
-                    in.nextLine();
-                    coords.clear();
-                    System.out.println("Invalid input entered. Please enter in the format specified.");
+                } catch (InputMismatchException e) { //If an error was thrown
+                    in.nextLine(); //Clear out the scanner so new input can be obtained
+                    coords.clear(); //Clear out the ArrayList for new location
+                    System.out.println("Invalid input entered. Please enter in the format specified."); //Help the user out
                 }
-            } while (coords.size() != 2 || direction == 'z');
-            swap(square, coords.get(0) - 1, coords.get(1) - 1, direction);
-            moves++;
+            } while (coords.size() != 2 || direction == 'z'); 
+            swap(square, coords.get(0) - 1, coords.get(1) - 1, direction); //Swap the elements
+            moves++; //Increment the number of moves used
         } while (!checkAnswer(square));
         in.close(); //Close scanner as no more input is required
-        System.out.print("\u001b[2J");
-        System.out.flush();
-        System.out.println("Congratulations! You have solved the magic square in " + moves + " moves.");
+        System.out.println("\nCongratulations! You have solved the magic square in " + moves + " moves."); //Tell the user the score
     }
 
     private static void printSquare(int square[][]) { //Function to print magic square
@@ -80,61 +78,61 @@ public class Q1b {
             for (int y = 0; y < square.length; y++) {
                 System.out.printf("%-5d", square[x][y]); //Print row with correct spacing between each column element
             }
-            System.out.println();
+            System.out.println(); //Print new line for the next row
         }
     }
 
-    private static int[][] swap(int square[][], int x, int y, int direction) {
-        int temp = 0;
-        int num = square.length;
-        switch (direction) {
-            case 0: // up
-            case 117:
-                temp = square[x][y];
+    private static int[][] swap(int square[][], int x, int y, int direction) { //Function to swap elements
+        int temp = 0; //Instantiate temp variable
+        int num = square.length; //Find number of elements
+        switch (direction) { //Depending on direction
+            case 0: //UP using random number generation
+            case 117: //UP using type promotion from user input
+                temp = square[x][y]; //Swap element
                 square[x][y] = square[Math.floorMod(x-1, num)][y];
                 square[Math.floorMod(x-1, num)][y] = temp;
                 break;
-            case 1: // right
-            case 114:
+            case 1: //RIGHT using random number generation
+            case 114: //RIGHT using type promotion from user input
                 temp = square[x][y];
                 square[x][y] = square[x][Math.floorMod(y+1, num)];
                 square[x][Math.floorMod(y+1, num)] = temp;
                 break;
-            case 2: // down
-            case 100:
+            case 2: //DOWN using random number generation
+            case 100: //DOWN using type promotion from user input
                 temp = square[x][y];
                 square[x][y] = square[Math.floorMod(x+1, num)][y];
                 square[Math.floorMod(x+1, num)][y] = temp;
                 break;
-            case 3: // left
-            case 108:
+            case 3: // EFT using random number generation
+            case 108: //LEFT using type promotion from user input
                 temp = square[x][y];
                 square[x][y] = square[x][Math.floorMod(y-1, num)];
                 square[x][Math.floorMod(y-1, num)] = temp;
                 break;
         }
-        return square;
+        return square; //Return swapped square
     }
 
-    private static boolean checkAnswer(int square[][]) {
-        int num = square.length;
-        int magic = (num * ((num * num) + 1)) / 2;
-        int sum = 0;
-        for (int i = 0; i < num; i++) {
+    private static boolean checkAnswer(int square[][]) { //Function to check the solution
+        int num = square.length; //Find number of elements
+        int magic = (num * ((num * num) + 1)) / 2; //Calculate magic number
+        int sum = 0; //Temporary variable to hold sum
+        for (int i = 0; i < num; i++) { //Calculate diagonal sum
             sum += square[i][i];
         }
-        if (magic != sum) {
-            return false;
+        if (magic != sum) { //If it is not the magic number
+            return false; //Not solved
         }
-        sum = 0;
-        for (int i = 0; i < num; i++) {
+        sum = 0; //Reset temp variable
+        for (int i = 0; i < num; i++) { //Calculate other diagonal sum
             sum += square[i][num - 1 - i];
         }
         if (magic != sum) {
             return false;
         }
-        for (int i = 0; i < num; i++) {
-            sum = 0;
+        for (int i = 0; i < num; i++) { //Calculate row sum
+            sum = 0; 
             for (int j = 0; j < num; j++) {
                 sum += square[i][j];
             }
@@ -142,7 +140,7 @@ public class Q1b {
                 return false;
             }
         }
-        for (int i = 0; i < num; i++) {
+        for (int i = 0; i < num; i++) { //Calculate column sum
             sum = 0;
             for (int j = 0; j < num; j++) {
                 sum += square[j][i];
@@ -151,6 +149,6 @@ public class Q1b {
                 return false;
             }
         }
-        return true;
+        return true; //Magic square is solved
     }
 }

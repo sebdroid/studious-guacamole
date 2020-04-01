@@ -36,7 +36,7 @@ public class Q1a {
             for (int y = 0; y < square.length; y++) {
                 System.out.printf("%-5d", square[x][y]); //Print row with correct spacing between each column element
             }
-            System.out.println();
+            System.out.println(); //Print new line for the next row
         }
     }
 }
