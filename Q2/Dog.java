@@ -1,10 +1,13 @@
+//Sebastian Jose
+//1923070
+
 public abstract class Dog extends Pet {
     public final static String animal = "Dog";
     private float height;
     private String breed;
 
-    public Dog(String name, Integer age, String colour, float weight, float height, String breed) {
-        super(name, age, colour, weight);
+    public Dog(String name, String colour, float weight, float height, String breed) {
+        super(name, colour, weight);
         this.setHeight(height);
         this.setBreed(breed);
     }

@@ -1,3 +1,7 @@
+//Solution to Q1 A
+//Sebastian Jose
+//1923070
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

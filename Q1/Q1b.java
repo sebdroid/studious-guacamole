@@ -1,3 +1,7 @@
+//Solution to Q1 B
+//Sebastian Jose
+//1923070
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -66,7 +70,7 @@ public class Q1b {
                     System.out.println("Invalid input entered. Please enter in the format specified."); //Help the user out
                 }
             } while (coords.size() != 2 || direction == 'z'); 
-            swap(square, coords.get(0) - 1, coords.get(1) - 1, direction); //Swap the elements
+            swap(square, coords.get(0) - 1, coords.get(1) - 1, direction); //Swap the elements with type promotion for direction
             moves++; //Increment the number of moves used
         } while (!checkAnswer(square));
         in.close(); //Close scanner as no more input is required
@@ -104,7 +108,7 @@ public class Q1b {
                 square[x][y] = square[Math.floorMod(x+1, num)][y];
                 square[Math.floorMod(x+1, num)][y] = temp;
                 break;
-            case 3: // EFT using random number generation
+            case 3: //LEFT using random number generation
             case 108: //LEFT using type promotion from user input
                 temp = square[x][y];
                 square[x][y] = square[x][Math.floorMod(y-1, num)];

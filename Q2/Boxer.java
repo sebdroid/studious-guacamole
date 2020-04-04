@@ -1,10 +1,13 @@
+//Sebastian Jose
+//1923070
+
 import java.util.Random;
 
 public class Boxer extends Dog {
     public final static String breed = "Boxer";
 
-    public Boxer(String name, Integer age, String colour, float weight, float height){
-        super(name, age, colour, weight, height, breed);
+    public Boxer(String name, String colour, float weight, float height){
+        super(name, colour, weight, height, breed);
     }
 
     public void tips(){

@@ -1,10 +1,13 @@
+//Sebastian Jose
+//1923070
+
 public abstract class Fish extends Pet {
     public final static String animal = "Fish";
     private float length;
     private String species;
 
-    public Fish(String name, Integer age, String colour, float weight, float length, String species) {
-        super(name, age, colour, weight);
+    public Fish(String name, String colour, float weight, float length, String species) {
+        super(name, colour, weight);
         this.setLength(length);
         this.setSpecies(species);
     }

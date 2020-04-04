@@ -1,22 +1,15 @@
+//Sebastian Jose
+//1923070
+
 public abstract class Pet {
     private String name;
-    private Integer age;
     private String colour;
     private float weight;
 
-    public Pet(String name, Integer age, String colour, float weight) {
+    public Pet(String name, String colour, float weight) {
         this.setName(name);
-        this.setAge(age);
         this.setColour(colour);
         this.setWeight(weight);
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
     }
 
     public float getWeight() {
